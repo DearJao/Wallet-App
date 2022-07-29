@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { actionLogin } from '../redux/actions';
 
-class Login extends React.Component {
+class Login extends Component {
   constructor() {
     super();
 
