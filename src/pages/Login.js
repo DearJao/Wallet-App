@@ -61,7 +61,7 @@ class Login extends Component {
 
     return (
       <div data-testid="page-login">
-        <h1>Login</h1>
+        <h1>LOGIN</h1>
         <form>
           <input
             data-testid="email-input"
