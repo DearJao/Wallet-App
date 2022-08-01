@@ -1,0 +1,2 @@
+export const ACTION_LOGIN = 'ACTION_LOGIN';
+export const ACTION_CURRENCY = 'ACTION_CURRENCY';
