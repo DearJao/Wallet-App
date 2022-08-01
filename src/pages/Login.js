@@ -60,7 +60,7 @@ class Login extends Component {
     }
 
     return (
-      <div data-testid="page-login">
+      <div className="login-page" data-testid="page-login">
         <h1>LOGIN</h1>
         <form>
           <input
