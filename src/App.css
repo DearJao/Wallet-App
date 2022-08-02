@@ -14,4 +14,12 @@
 
 .form-sections {
   padding-left: 10px;
+  padding-right: 10px;
+}
+
+.form-button {
+  background-color: rgb(6, 181, 250);
+  border: 10px;
+  border-radius: 5px;
+  padding: 5px;
 }
