@@ -3,14 +3,15 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { actionCurrency, actionExpenses } from '../redux/actions';
 
+const alimento = 'Alimentação';
+
 const INNITIAL_STATE = {
   id: 0,
   value: '0',
   currency: 'USD',
   method: 'Dinheiro',
-  tag: 'Alimentação',
+  tag: alimento,
   description: '',
-  // exchangeRates: {},
 };
 
 class WalletForm extends Component {
@@ -32,32 +33,15 @@ class WalletForm extends Component {
     });
   };
 
-  // getRates = async () => {
-  //   const request = await fetch('https://economia.awesomeapi.com.br/json/all');
-  //   const response = await request.json();
-  //   this.setState({
-  //     exchangeRates: response,
-  //   });
-  // };
-
-  // handleSum = () => {
-  //   const { value, currency, exchangeRates } = this.state;
-  //   const { resultSum } = this.props;
-  //   const currentCoin = exchangeRates[currency].ask;
-  //   const multiplies = (currentCoin * value);
-  //   const total = parseFloat(multiplies.toFixed(2));
-  //   resultSum(total);
-  // };
-
   clearState = () => {
     const sumNum = 1;
     let { id } = this.state;
     this.setState({
       id: id += sumNum,
-      value: '',
+      value: '0',
       currency: 'USD',
-      method: '',
-      tag: '',
+      method: 'Dinheiro',
+      tag: alimento,
       description: '',
     });
   };
@@ -135,7 +119,7 @@ class WalletForm extends Component {
               value={ tag }
               onChange={ this.handleChange }
             >
-              <option value="Alimentação"> Alimentação </option>
+              <option value={ alimento }> Alimentação </option>
               <option value="Lazer"> Lazer </option>
               <option value="Trabalho"> Trabalho </option>
               <option value="Transporte"> Transporte </option>
@@ -177,14 +161,12 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   currencyCoin: () => dispatch(actionCurrency()),
   expensesInfo: (payload) => dispatch(actionExpenses(payload)),
-  // resultSum: (value) => dispatch(actionSum(value)),
 });
 
 WalletForm.propTypes = {
   currencies: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   currencyCoin: PropTypes.func.isRequired,
   expensesInfo: PropTypes.func.isRequired,
-  // resultSum: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(WalletForm);
