@@ -7,7 +7,7 @@ const alimento = 'Alimentação';
 
 const INNITIAL_STATE = {
   id: 0,
-  value: '0',
+  value: '',
   currency: 'USD',
   method: 'Dinheiro',
   tag: alimento,
@@ -38,7 +38,7 @@ class WalletForm extends Component {
     let { id } = this.state;
     this.setState({
       id: id += sumNum,
-      value: '0',
+      value: '',
       currency: 'USD',
       method: 'Dinheiro',
       tag: alimento,

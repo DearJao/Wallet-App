@@ -39,6 +39,7 @@ class Table extends Component {
                   }
                 </td>
                 <td>Real</td>
+                <td />
               </tr>
             ))}
           </tbody>
