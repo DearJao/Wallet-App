@@ -64,6 +64,7 @@ class Login extends Component {
         <h1>LOGIN</h1>
         <form>
           <input
+            className="login-input"
             data-testid="email-input"
             type="email"
             name="email"
@@ -72,6 +73,7 @@ class Login extends Component {
           />
           <br />
           <input
+            className="login-input"
             data-testid="password-input"
             type="password"
             name="passwordInput"
@@ -80,6 +82,7 @@ class Login extends Component {
           />
           <br />
           <button
+            className="btn-login"
             data-testid="login-submit-button"
             type="button"
             disabled={ isLoginButtonDisable }

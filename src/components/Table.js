@@ -10,7 +10,7 @@ class Table extends Component {
       <div>
         <table>
           <thead>
-            <tr>
+            <tr className="tr-table1">
               <th className="th-table">Descrição</th>
               <th className="th-table">Tag</th>
               <th className="th-table">Método de pagamento</th>
@@ -24,22 +24,39 @@ class Table extends Component {
           </thead>
           <tbody>
             {expensesHistory.map((item) => (
-              <tr key={ item.id }>
-                <td>{ item.description }</td>
-                <td>{ item.tag }</td>
-                <td>{ item.method }</td>
-                <td>{ Number(item.value).toFixed(2) }</td>
-                <td>{ item.exchangeRates[item.currency].name }</td>
-                <td>{ Number(item.exchangeRates[item.currency].ask).toFixed(2) }</td>
-                <td>
+              <tr key={ item.id } className="tr-table2">
+                <td className="td-table">{ item.description }</td>
+                <td className="td-table">{ item.tag }</td>
+                <td className="td-table">{ item.method }</td>
+                <td className="td-table">{ Number(item.value).toFixed(2) }</td>
+                <td className="td-table">{ item.exchangeRates[item.currency].name }</td>
+                <td className="td-table">
+                  { Number(item.exchangeRates[item.currency].ask).toFixed(2) }
+                </td>
+                <td className="td-table">
                   {
                     ((Number(item.value) * Number(
                       item.exchangeRates[item.currency].ask,
                     )).toFixed(2))
                   }
                 </td>
-                <td>Real</td>
-                <td />
+                <td className="td-table">Real</td>
+                <td className="td-table">
+                  <button
+                    type="button"
+                    className="btn-table1"
+                    data-testid="edit-btn"
+                  >
+                    Editar
+                  </button>
+                  <button
+                    type="button"
+                    className="btn-table2"
+                    data-testid="delete-btn"
+                  >
+                    Excluir
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
