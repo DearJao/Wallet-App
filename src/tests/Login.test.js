@@ -5,11 +5,20 @@ import App from '../App';
 import { renderWithRouterAndRedux } from '../tests/helpers/renderWith';
 
 describe('verify all inputs and elements of the page Login', () => {
-  it('', () => {
+  it('verify if the text login apears in the first page', () => {
     renderWithRouterAndRedux(<App />);
 
     const login = screen.getByText(/login/i)
-
-    expect(login).toHaveTextValue(/login/i)
+    expect(login).toBeInTheDocument()
   })
+
+  it('verify if the input field have the correct format of validations', () => {
+    renderWithRouterAndRedux(<App />);
+
+    const loginInput = screen.getByRole
+  })
+
+  // it('', () => {
+    
+  // })
 })

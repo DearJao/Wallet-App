@@ -35,11 +35,11 @@ class Login extends Component {
     if (passwordInput.length >= minCaractersNumber && re.test(email)) {
       this.setState({
         isLoginButtonDisable: false,
-      }, () => {});
+      }, () => { });
     } else {
       this.setState({
         isLoginButtonDisable: true,
-      }, () => {});
+      }, () => { });
     }
   };
 
@@ -63,30 +63,36 @@ class Login extends Component {
       <div className="login-page" data-testid="page-login">
         <h1>LOGIN</h1>
         <form>
-          <input
-            className="login-input"
-            data-testid="email-input"
-            type="email"
-            name="email"
-            value={ email }
-            onChange={ this.handleChange }
-          />
+          <label htmlFor="email-input">
+            Email
+            <input
+              className="login-input"
+              data-testid="email-input"
+              type="email"
+              name="email"
+              value={email}
+              onChange={this.handleChange}
+            />
+          </label>
           <br />
-          <input
-            className="login-input"
-            data-testid="password-input"
-            type="password"
-            name="passwordInput"
-            value={ passwordInput }
-            onChange={ this.handleChange }
-          />
+          <label htmlFor="password-input">
+            Senha
+            <input
+              className="login-input"
+              data-testid="password-input"
+              type="password"
+              name="passwordInput"
+              value={passwordInput}
+              onChange={this.handleChange}
+            />
+          </label>
           <br />
           <button
             className="btn-login"
             data-testid="login-submit-button"
             type="button"
-            disabled={ isLoginButtonDisable }
-            onClick={ this.handleLogin }
+            disabled={isLoginButtonDisable}
+            onClick={this.handleLogin}
           >
             Entrar
           </button>
