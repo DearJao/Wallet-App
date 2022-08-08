@@ -1,5 +1,6 @@
 import {
   ACTION_CURRENCY,
+  ACTION_ERASE,
   ACTION_EXPENSES,
   // ACTION_SUM,
 } from '../actions/actionsTypes';
@@ -21,6 +22,10 @@ const wallet = (state = INITIAL_STATE, action) => {
         ...state.expenses,
         { ...action.payload, exchangeRates: action.data },
       ],
+    };
+  case ACTION_ERASE:
+    return { ...state,
+      expenses: state.expenses.filter((expense) => expense.id !== Number(action.payload)),
     };
   default:
     return state;

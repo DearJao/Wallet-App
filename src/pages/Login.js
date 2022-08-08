@@ -18,12 +18,15 @@ class Login extends Component {
 
   handleChange = ({ target }) => {
     const { name, value } = target;
-    this.setState({
-      [name]: value,
-    }, () => {
-      this.handleCheckLength();
-    });
-  }
+    this.setState(
+      {
+        [name]: value,
+      },
+      () => {
+        this.handleCheckLength();
+      },
+    );
+  };
 
   handleCheckLength = () => {
     const { passwordInput, email } = this.state;
@@ -33,13 +36,19 @@ class Login extends Component {
     const re = /\S+@\S+\.\S+/;
 
     if (passwordInput.length >= minCaractersNumber && re.test(email)) {
-      this.setState({
-        isLoginButtonDisable: false,
-      }, () => { });
+      this.setState(
+        {
+          isLoginButtonDisable: false,
+        },
+        () => { },
+      );
     } else {
-      this.setState({
-        isLoginButtonDisable: true,
-      }, () => { });
+      this.setState(
+        {
+          isLoginButtonDisable: true,
+        },
+        () => { },
+      );
     }
   };
 
@@ -50,7 +59,7 @@ class Login extends Component {
     this.setState({
       logged: true,
     });
-  }
+  };
 
   render() {
     const { email, passwordInput, isLoginButtonDisable, logged } = this.state;
@@ -63,15 +72,15 @@ class Login extends Component {
       <div className="login-page" data-testid="page-login">
         <h1>LOGIN</h1>
         <form>
-          <label htmlFor="email-input">
+          <label htmlFor="Email">
             Email
             <input
               className="login-input"
               data-testid="email-input"
               type="email"
               name="email"
-              value={email}
-              onChange={this.handleChange}
+              value={ email }
+              onChange={ this.handleChange }
             />
           </label>
           <br />
@@ -82,8 +91,8 @@ class Login extends Component {
               data-testid="password-input"
               type="password"
               name="passwordInput"
-              value={passwordInput}
-              onChange={this.handleChange}
+              value={ passwordInput }
+              onChange={ this.handleChange }
             />
           </label>
           <br />
@@ -91,8 +100,8 @@ class Login extends Component {
             className="btn-login"
             data-testid="login-submit-button"
             type="button"
-            disabled={isLoginButtonDisable}
-            onClick={this.handleLogin}
+            disabled={ isLoginButtonDisable }
+            onClick={ this.handleLogin }
           >
             Entrar
           </button>

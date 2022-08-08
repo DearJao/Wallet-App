@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { actionErase } from '../redux/actions';
 
 class Table extends Component {
+  handleEraser = ({ target }) => {
+    const { name } = target;
+    const { expenseEraser } = this.props;
+    expenseEraser(name);
+  }
+
   render() {
     const { expensesHistory } = this.props;
 
@@ -51,8 +58,10 @@ class Table extends Component {
                   </button>
                   <button
                     type="button"
+                    name={ item.id }
                     className="btn-table2"
                     data-testid="delete-btn"
+                    onClick={ this.handleEraser }
                   >
                     Excluir
                   </button>
@@ -66,6 +75,10 @@ class Table extends Component {
   }
 }
 
+const mapDispatchToProps = (dispatch) => ({
+  expenseEraser: (id) => dispatch(actionErase(id)),
+});
+
 const mapStateToProps = ({ wallet }) => ({
   expensesHistory: wallet.expenses,
 });
@@ -74,4 +87,4 @@ Table.propTypes = {
   expensesHistory: PropTypes.arrayOf(PropTypes.object),
 }.isRequired;
 
-export default connect(mapStateToProps)(Table);
+export default connect(mapStateToProps, mapDispatchToProps)(Table);

@@ -1,4 +1,4 @@
 export const ACTION_LOGIN = 'ACTION_LOGIN';
 export const ACTION_CURRENCY = 'ACTION_CURRENCY';
 export const ACTION_EXPENSES = 'ACTION_EXPENSES';
-export const ACTION_SUM = 'ACTION_SUM';
+export const ACTION_ERASE = 'ACTION_ERASE';
