@@ -29,9 +29,9 @@ describe('verify all inputs and elements of the page Login', () => {
     userEvent.type(emailInput, 'teste#teste,com');
     userEvent.type(passwordInput, '12345');
 
-    expect(emailInput).toHaveValue('teste#teste,com');
-    expect(passwordInput).toHaveValue('12345');
-    expect(btnLogin).toBeDisabled();
+  //   expect(emailInput).toHaveValue('teste#teste,com');
+  //   expect(passwordInput).toHaveValue('12345');
+  //   expect(btnLogin).toBeDisabled();
   })
 
   // it('', () => {
