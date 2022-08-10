@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { actionErase } from '../redux/actions';
+import { actionErase, actionGetEditId } from '../redux/actions';
 
 class Table extends Component {
   handleEraser = ({ target }) => {
@@ -10,9 +10,14 @@ class Table extends Component {
     expenseEraser(name);
   }
 
+  handleEdit = (id) => {
+    const { expenseEdit } = this.props;
+    expenseEdit(id);
+  }
+
   render() {
     const { expensesHistory } = this.props;
-
+    console.log(expensesHistory);
     return (
       <div>
         <table>
@@ -51,8 +56,10 @@ class Table extends Component {
                 <td className="td-table">
                   <button
                     type="button"
+                    name={ item.id }
                     className="btn-table1"
                     data-testid="edit-btn"
+                    onClick={ () => this.handleEdit(item.id) }
                   >
                     Editar
                   </button>
@@ -77,6 +84,7 @@ class Table extends Component {
 
 const mapDispatchToProps = (dispatch) => ({
   expenseEraser: (id) => dispatch(actionErase(id)),
+  expenseEdit: (id) => dispatch(actionGetEditId(id)),
 });
 
 const mapStateToProps = ({ wallet }) => ({

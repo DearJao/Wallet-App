@@ -1,14 +1,16 @@
 import {
   ACTION_CURRENCY,
+  ACTION_ID_EDIT,
+  ACTION_EDITOR,
   ACTION_ERASE,
   ACTION_EXPENSES,
-  // ACTION_SUM,
 } from '../actions/actionsTypes';
 
 const INITIAL_STATE = {
   currencies: [],
   expenses: [],
-  // sumResult: 0,
+  editing: false,
+  idEdit: 0,
 };
 
 const wallet = (state = INITIAL_STATE, action) => {
@@ -27,6 +29,17 @@ const wallet = (state = INITIAL_STATE, action) => {
     return { ...state,
       expenses: state.expenses.filter((expense) => expense.id !== Number(action.payload)),
     };
+  case ACTION_ID_EDIT:
+    return { ...state,
+      editing: true,
+      idEdit: action.id,
+    };
+  case ACTION_EDITOR:
+    return ({
+      ...state,
+      expenses: [...action.expenses],
+      editing: false,
+    });
   default:
     return state;
   }

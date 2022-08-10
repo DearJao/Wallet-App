@@ -3,6 +3,8 @@ import {
   ACTION_CURRENCY,
   ACTION_EXPENSES,
   ACTION_ERASE,
+  ACTION_ID_EDIT,
+  ACTION_EDITOR,
 } from './actionsTypes';
 
 export const actionLogin = (email) => ({
@@ -29,4 +31,14 @@ export const actionExpenses = (payload) => async (dispatch) => {
 export const actionErase = (id) => ({
   type: ACTION_ERASE,
   payload: id,
+});
+
+export const actionGetEditId = (id) => ({
+  type: ACTION_ID_EDIT,
+  id,
+});
+
+export const actionEditor = (expenses) => ({
+  type: ACTION_EDITOR,
+  expenses,
 });

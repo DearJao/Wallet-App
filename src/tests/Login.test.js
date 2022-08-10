@@ -23,7 +23,7 @@ describe('verify all inputs and elements of the page Login', () => {
     userEvent.type(passwordInput, '123456');
 
     expect(emailInput.value).toBe('teste@teste.com');
-    // expect(passwordInput).toHaveValue('123456');
+    expect(passwordInput).toHaveValue('123456');
     expect(btnLogin).not.toBe();
 
     userEvent.type(emailInput, 'teste#teste,com');
